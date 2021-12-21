@@ -19,13 +19,16 @@ class RegisterSpec: QuickSpec {
     override func spec() {
         describe("registeration") {
             var viewModel: RegisterViewModel!
+            var fakeRouter: FakeRegisterRouter!
             
             beforeEach {
                 viewModel = RegisterViewModel()
+                fakeRouter = FakeRegisterRouter()
             }
 
             afterEach {
                 viewModel = nil
+                fakeRouter = nil
             }
             
             context("fields validations") {
@@ -80,8 +83,15 @@ class RegisterSpec: QuickSpec {
                 
                 it("goes to login") {
                     // Arrange
+                    viewModel.email.value = "dev.ahmedramy@gmail.com"
+                    viewModel.password.value = "123456AR"
+                    viewModel.confirmPassword.value = "123456AR"
+                    
                     // Act
+                    viewModel.register()
+                    
                     // Assert
+                    expect(fakeRouter.didGoToLogin).toEventually(beTrue())
                 }
             }
         }
