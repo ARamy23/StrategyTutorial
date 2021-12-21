@@ -94,6 +94,24 @@ class ValidationRulesSpec: QuickSpec {
                     }
                 }
             }
+            
+            context("password & confirm password") {
+                it("should match when need confirmation") {
+                    let password = "zzzzz1"
+                    let confirmPassword = "zzzzz1z"
+                    let rule = MatchingPasswordsValidationRule(password: password, repeatPassword: confirmPassword)
+                    let expectedError = LocalError(
+                        validation: .passwordMismatch
+                    ).text
+
+                    do {
+                        try rule.validate()
+                    } catch {
+                        let actualError = error.toLocalError().text
+                        expect(actualError).to(equal(expectedError), description: "\(actualError)-\(expectedError)")
+                    }
+                }
+            }
         }
     }
 }
