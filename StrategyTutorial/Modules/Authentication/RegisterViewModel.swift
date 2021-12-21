@@ -13,7 +13,16 @@ final class RegisterViewModel: BaseViewModel {
     var confirmPassword: Dynamic<String> = .init("")
     
     func register() {
-        let rules: [ValidationRule] = [
+        do {
+            try getRules().forEach { try $0.validate() }
+            isLoading.value = true
+        } catch let error {
+            self.error.value = error.toLocalError()
+        }
+    }
+    
+    private func getRules() -> [ValidationRule] {
+        [
             EmailValidationRule(email: email.value),
             PasswordValidationRule(
                 password: password.value,
@@ -28,11 +37,5 @@ final class RegisterViewModel: BaseViewModel {
                 repeatPassword: confirmPassword.value
             )
         ]
-        
-        do {
-            try rules.forEach { try $0.validate() }
-        } catch let error {
-            self.error.value = error.toLocalError()
-        }
     }
 }

@@ -68,8 +68,8 @@ class RegisterSpec: QuickSpec {
                 it("shows loading state") {
                     // Arrange
                     viewModel.email.value = "dev.ahmedramy@gmail.com"
-                    viewModel.password.value = "ARARARARAR"
-                    viewModel.confirmPassword.value = "ARARARARAR"
+                    viewModel.password.value = "123456AR"
+                    viewModel.confirmPassword.value = "123456AR"
                     
                     // Act
                     viewModel.register()
