@@ -67,8 +67,15 @@ class RegisterSpec: QuickSpec {
             context("when register is pressed") {
                 it("shows loading state") {
                     // Arrange
+                    viewModel.email.value = "dev.ahmedramy@gmail.com"
+                    viewModel.password.value = "ARARARARAR"
+                    viewModel.confirmPassword.value = "ARARARARAR"
+                    
                     // Act
+                    viewModel.register()
+                    
                     // Assert
+                    expect(viewModel.isLoading.value).to(beTrue())
                 }
                 
                 it("goes to login") {
