@@ -52,7 +52,48 @@ class ValidationRulesSpec: QuickSpec {
             }
 
             // MARK: - Passwords
-            context("password") {}
+            context("password") {
+                it("should not be empty") {
+                    let password = ""
+                    let rule = PasswordValidationRule(password: password)
+                    let expectedError = LocalError(
+                        validation: .empty(fieldName: rule.field.title)).text
+                    do {
+                        try rule.validate()
+                    } catch {
+                        let actualError = error.toLocalError().text
+                        expect(actualError).to(equal(expectedError), description: "\(actualError)-\(expectedError)")
+                    }
+                }
+
+                it("shoud be at least 5 characters") {
+                    let password = "zz1z"
+                    let rule = PasswordValidationRule(password: password)
+                    let expectedError = LocalError(
+                        validation: .tooShort(fieldName: rule.field.title, minimum: 5)
+                    ).text
+                    do {
+                        try rule.validate()
+                    } catch {
+                        let actualError = error.toLocalError().text
+                        expect(actualError).to(equal(expectedError), description: "\(actualError)-\(expectedError)")
+                    }
+                }
+
+                it("should contain at least 1 number") {
+                    let password = "zzzzz"
+                    let rule = PasswordValidationRule(password: password)
+                    let expectedError = LocalError(
+                        validation: .passwordWeak(reason: .noNumbers)
+                    ).text
+                    do {
+                        try rule.validate()
+                    } catch {
+                        let actualError = error.toLocalError().text
+                        expect(actualError).to(equal(expectedError), description: "\(actualError)-\(expectedError)")
+                    }
+                }
+            }
         }
     }
 }
