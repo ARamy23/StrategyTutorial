@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		042CEFBA2771AA9600A9D3D6 /* PasswordValidationRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042CEFB32771AA9600A9D3D6 /* PasswordValidationRule.swift */; };
+		042CEFBB2771AA9600A9D3D6 /* MatchingPasswordValidationRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042CEFB42771AA9600A9D3D6 /* MatchingPasswordValidationRule.swift */; };
+		042CEFBC2771AA9600A9D3D6 /* EmailValidationRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042CEFB52771AA9600A9D3D6 /* EmailValidationRule.swift */; };
+		042CEFBD2771AA9600A9D3D6 /* ValidationRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042CEFB62771AA9600A9D3D6 /* ValidationRule.swift */; };
+		042CEFC02771AACC00A9D3D6 /* Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042CEFBF2771AACC00A9D3D6 /* Configurations.swift */; };
+		042CEFC32771ABD800A9D3D6 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042CEFC22771ABD800A9D3D6 /* String+Extensions.swift */; };
 		04B3386E277196A4008219D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3386D277196A4008219D1 /* AppDelegate.swift */; };
 		04B33870277196A4008219D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3386F277196A4008219D1 /* SceneDelegate.swift */; };
 		04B33872277196A4008219D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B33871277196A4008219D1 /* ViewController.swift */; };
@@ -32,6 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		042CEFB32771AA9600A9D3D6 /* PasswordValidationRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordValidationRule.swift; sourceTree = "<group>"; };
+		042CEFB42771AA9600A9D3D6 /* MatchingPasswordValidationRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchingPasswordValidationRule.swift; sourceTree = "<group>"; };
+		042CEFB52771AA9600A9D3D6 /* EmailValidationRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailValidationRule.swift; sourceTree = "<group>"; };
+		042CEFB62771AA9600A9D3D6 /* ValidationRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationRule.swift; sourceTree = "<group>"; };
+		042CEFBF2771AACC00A9D3D6 /* Configurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurations.swift; sourceTree = "<group>"; };
+		042CEFC22771ABD800A9D3D6 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		04B3386A277196A4008219D1 /* StrategyTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StrategyTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B3386D277196A4008219D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04B3386F277196A4008219D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +85,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		042CEFAF2771AA9600A9D3D6 /* Validation Rules */ = {
+			isa = PBXGroup;
+			children = (
+				042CEFB32771AA9600A9D3D6 /* PasswordValidationRule.swift */,
+				042CEFB42771AA9600A9D3D6 /* MatchingPasswordValidationRule.swift */,
+				042CEFB52771AA9600A9D3D6 /* EmailValidationRule.swift */,
+				042CEFB62771AA9600A9D3D6 /* ValidationRule.swift */,
+			);
+			path = "Validation Rules";
+			sourceTree = "<group>";
+		};
+		042CEFBE2771AAC100A9D3D6 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				042CEFBF2771AACC00A9D3D6 /* Configurations.swift */,
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
+		042CEFC12771ABD000A9D3D6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				042CEFC22771ABD800A9D3D6 /* String+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		04B33861277196A4008219D1 = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +166,8 @@
 		04B33894277197BE008219D1 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				042CEFC12771ABD000A9D3D6 /* Extensions */,
+				042CEFBE2771AAC100A9D3D6 /* Business */,
 				04B33895277197C2008219D1 /* Error Handling */,
 			);
 			path = Core;
@@ -135,6 +176,7 @@
 		04B33895277197C2008219D1 /* Error Handling */ = {
 			isa = PBXGroup;
 			children = (
+				042CEFAF2771AA9600A9D3D6 /* Validation Rules */,
 				04B3389B27719A46008219D1 /* Parsers */,
 				04B33896277197C6008219D1 /* Errors */,
 			);
@@ -329,10 +371,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				04B33898277197CE008219D1 /* LocalError.swift in Sources */,
+				042CEFBC2771AA9600A9D3D6 /* EmailValidationRule.swift in Sources */,
 				04B3389A277197F8008219D1 /* ValidationError.swift in Sources */,
 				04B33872277196A4008219D1 /* ViewController.swift in Sources */,
+				042CEFC32771ABD800A9D3D6 /* String+Extensions.swift in Sources */,
+				042CEFBA2771AA9600A9D3D6 /* PasswordValidationRule.swift in Sources */,
+				042CEFC02771AACC00A9D3D6 /* Configurations.swift in Sources */,
 				04B3386E277196A4008219D1 /* AppDelegate.swift in Sources */,
 				04B33870277196A4008219D1 /* SceneDelegate.swift in Sources */,
+				042CEFBD2771AA9600A9D3D6 /* ValidationRule.swift in Sources */,
+				042CEFBB2771AA9600A9D3D6 /* MatchingPasswordValidationRule.swift in Sources */,
 				04B3389D27719A51008219D1 /* LocalErrorParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

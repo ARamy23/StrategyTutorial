@@ -20,6 +20,7 @@ class ValidationRulesSpec: QuickSpec {
         describe("validating") {
             // MARK: - Email
             context("emails") {
+                let field = Configurations.Validation.Field.email.title
                 it("doesn't allow empty emails") {
                     // Arrange
                     let email = ""
@@ -30,7 +31,7 @@ class ValidationRulesSpec: QuickSpec {
                         try rule.validate()
                     } catch {
                         // Assert
-                        let actualError = error.asLocalError().text
+                        let actualError = error.toLocalError().text
                         print(actualError, expectedError)
                         expect(actualError).to(equal(expectedError), description: "\(actualError)-\(expectedError)")
                     }
@@ -39,11 +40,11 @@ class ValidationRulesSpec: QuickSpec {
                 it("doesn't allow invalid emails") {
                     let email = "..."
                     let rule = EmailValidationRule(email: email)
-                    let expectedError = LocalError(validation: .emailInvalid).text
+                    let expectedError = LocalError(validation: .invalid(fieldName: field)).text
                     do {
                         try rule.validate()
                     } catch {
-                        let actualError = error.asLocalError().text
+                        let actualError = error.toLocalError().text
                         print(actualError, expectedError)
                         expect(actualError).to(equal(expectedError), description: "\(actualError)-\(expectedError)")
                     }
