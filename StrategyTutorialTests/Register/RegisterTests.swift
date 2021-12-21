@@ -18,11 +18,25 @@ import Nimble
 class RegisterSpec: QuickSpec {
     override func spec() {
         describe("registeration") {
+            var viewModel: RegisterViewModel!
+            
+            beforeEach {
+                viewModel = RegisterViewModel()
+            }
+
+            afterEach {
+                viewModel = nil
+            }
+            
             context("fields validations") {
                 it("must all be valid so user can press register") {
                     // Arrange
-                    // Act
-                    // Assert
+                    viewModel.email.value = "dev.ahmedramy@gmail.com"
+                    viewModel.password.value = "123456AR"
+                    viewModel.confirmPassword.value = "123456AR"
+                    
+                    // Act & Assert
+                    expect(viewModel.canRegister).to(beTrue())
                 }
             }
             
