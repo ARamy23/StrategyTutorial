@@ -13,30 +13,37 @@ final class RegisterViewController: BaseViewController, HasViewModel {
     
     override func loadView() {
         super.loadView()
-        let emailTF = MainTextField()
-        emailTF.placeholder = "Email"
         
-        let passwordTF = MainTextField()
-        passwordTF.placeholder = "Password"
+        let emailTF = LabeledTextField()
+        emailTF.textField.placeholder = "Email"
         
-        let confirmPasswordTF = MainTextField()
-        confirmPasswordTF.placeholder = "Confirm Password"
+        let passwordTF = LabeledTextField()
+        passwordTF.textField.placeholder = "Password"
         
-        emailTF.onUpdate = { [weak self] value in
+        let confirmPasswordTF = LabeledTextField()
+        confirmPasswordTF.textField.placeholder = "Confirm Password"
+        
+        emailTF.textField.onUpdate = { [weak self] value in
             self?.viewModel?.email.value = value
         }
         
-        passwordTF.onUpdate = { [weak self] value in
+        passwordTF.textField.onUpdate = { [weak self] value in
             self?.viewModel?.password.value = value
         }
         
-        confirmPasswordTF.onUpdate = { [weak self] value in
+        confirmPasswordTF.textField.onUpdate = { [weak self] value in
             self?.viewModel?.confirmPassword.value = value
         }
         
         let registerButton = MainButton(title: "Register")
         registerButton.onTap = { [weak self] in
             self?.viewModel?.register()
+        }
+        
+        viewModel?.validationsError.subscribe {
+            emailTF.error.value = $0[.email] ?? nil
+            passwordTF.error.value = $0[.password] ?? nil
+            confirmPasswordTF.error.value = $0[.confirmPassword] ?? nil
         }
         
         let containerView = UIView()
