@@ -14,6 +14,9 @@
 		042CEFC02771AACC00A9D3D6 /* Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042CEFBF2771AACC00A9D3D6 /* Configurations.swift */; };
 		042CEFC32771ABD800A9D3D6 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042CEFC22771ABD800A9D3D6 /* String+Extensions.swift */; };
 		042CEFC72771AD3100A9D3D6 /* RegisterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042CEFC62771AD3100A9D3D6 /* RegisterTests.swift */; };
+		042CEFCD2771AFE600A9D3D6 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042CEFCC2771AFE600A9D3D6 /* RegisterViewModel.swift */; };
+		042CEFD02771B08C00A9D3D6 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042CEFCF2771B08C00A9D3D6 /* Dynamic.swift */; };
+		042CEFD32771B09B00A9D3D6 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042CEFD22771B09B00A9D3D6 /* BaseViewModel.swift */; };
 		04B3386E277196A4008219D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3386D277196A4008219D1 /* AppDelegate.swift */; };
 		04B33870277196A4008219D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3386F277196A4008219D1 /* SceneDelegate.swift */; };
 		04B33872277196A4008219D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B33871277196A4008219D1 /* ViewController.swift */; };
@@ -46,6 +49,9 @@
 		042CEFBF2771AACC00A9D3D6 /* Configurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurations.swift; sourceTree = "<group>"; };
 		042CEFC22771ABD800A9D3D6 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		042CEFC62771AD3100A9D3D6 /* RegisterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTests.swift; sourceTree = "<group>"; };
+		042CEFCC2771AFE600A9D3D6 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		042CEFCF2771B08C00A9D3D6 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
+		042CEFD22771B09B00A9D3D6 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		04B3386A277196A4008219D1 /* StrategyTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StrategyTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B3386D277196A4008219D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04B3386F277196A4008219D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +135,38 @@
 			path = Register;
 			sourceTree = "<group>";
 		};
+		042CEFC82771AFC500A9D3D6 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				042CEFCB2771AFD400A9D3D6 /* Authentication */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		042CEFCB2771AFD400A9D3D6 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				042CEFCC2771AFE600A9D3D6 /* RegisterViewModel.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		042CEFCE2771B08700A9D3D6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				042CEFCF2771B08C00A9D3D6 /* Dynamic.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		042CEFD12771B09500A9D3D6 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				042CEFD22771B09B00A9D3D6 /* BaseViewModel.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		04B33861277196A4008219D1 = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +190,7 @@
 		04B3386C277196A4008219D1 /* StrategyTutorial */ = {
 			isa = PBXGroup;
 			children = (
+				042CEFC82771AFC500A9D3D6 /* Modules */,
 				04B33894277197BE008219D1 /* Core */,
 				04B3386D277196A4008219D1 /* AppDelegate.swift */,
 				04B3386F277196A4008219D1 /* SceneDelegate.swift */,
@@ -185,6 +224,8 @@
 		04B33894277197BE008219D1 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				042CEFD12771B09500A9D3D6 /* Base */,
+				042CEFCE2771B08700A9D3D6 /* Utils */,
 				042CEFC12771ABD000A9D3D6 /* Extensions */,
 				042CEFBE2771AAC100A9D3D6 /* Business */,
 				04B33895277197C2008219D1 /* Error Handling */,
@@ -392,12 +433,15 @@
 				04B33898277197CE008219D1 /* LocalError.swift in Sources */,
 				042CEFBC2771AA9600A9D3D6 /* EmailValidationRule.swift in Sources */,
 				04B3389A277197F8008219D1 /* ValidationError.swift in Sources */,
+				042CEFD02771B08C00A9D3D6 /* Dynamic.swift in Sources */,
 				04B33872277196A4008219D1 /* ViewController.swift in Sources */,
 				042CEFC32771ABD800A9D3D6 /* String+Extensions.swift in Sources */,
 				042CEFBA2771AA9600A9D3D6 /* PasswordValidationRule.swift in Sources */,
 				042CEFC02771AACC00A9D3D6 /* Configurations.swift in Sources */,
 				04B3386E277196A4008219D1 /* AppDelegate.swift in Sources */,
+				042CEFCD2771AFE600A9D3D6 /* RegisterViewModel.swift in Sources */,
 				04B33870277196A4008219D1 /* SceneDelegate.swift in Sources */,
+				042CEFD32771B09B00A9D3D6 /* BaseViewModel.swift in Sources */,
 				042CEFBD2771AA9600A9D3D6 /* ValidationRule.swift in Sources */,
 				042CEFBB2771AA9600A9D3D6 /* MatchingPasswordValidationRule.swift in Sources */,
 				04B3389D27719A51008219D1 /* LocalErrorParser.swift in Sources */,

@@ -35,16 +35,32 @@ class RegisterSpec: QuickSpec {
                     viewModel.password.value = "123456AR"
                     viewModel.confirmPassword.value = "123456AR"
                     
-                    // Act & Assert
-                    expect(viewModel.canRegister).to(beTrue())
+                    // Act
+                    viewModel.register()
+                    
+                    // Assert
+                    expect(viewModel.error.value).to(beNil())
                 }
             }
             
             context("password strength") {
                 it("must show user appropriate message upon failure in strength check") {
                     // Arrange
+                    viewModel.email.value = "dev.ahmedramy@gmail.com"
+                    viewModel.password.value = "ARARARARAR"
+                    viewModel.confirmPassword.value = "ARARARARAR"
+                    
                     // Act
+                    viewModel.register()
+                    
                     // Assert
+                    expect(
+                        viewModel.error.value
+                    ).to(
+                        equal(
+                            ValidationError.passwordWeak(reason: .noNumbers).toLocalError()
+                        )
+                    )
                 }
             }
             
