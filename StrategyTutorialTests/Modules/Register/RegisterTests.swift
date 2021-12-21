@@ -22,8 +22,8 @@ class RegisterSpec: QuickSpec {
             var fakeRouter: FakeRegisterRouter!
             
             beforeEach {
-                viewModel = RegisterViewModel()
                 fakeRouter = FakeRegisterRouter()
+                viewModel = RegisterViewModel(router: fakeRouter)
             }
 
             afterEach {

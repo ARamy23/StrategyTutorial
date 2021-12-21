@@ -12,10 +12,24 @@ final class RegisterViewModel: BaseViewModel {
     var password: Dynamic<String> = .init("")
     var confirmPassword: Dynamic<String> = .init("")
     
+    private let router: RegisterRouterProtocol
+    
+    init(router: RegisterRouterProtocol) {
+        self.router = router
+    }
+    
     func register() {
         do {
             try getRules().forEach { try $0.validate() }
             isLoading.value = true
+            
+            DispatchQueue
+                .main
+                .asyncAfter(
+                    deadline: .now() + 0.25
+                ) { [weak self] in
+                    self?.router.goToLogin()
+            }
         } catch let error {
             self.error.value = error.toLocalError()
         }
